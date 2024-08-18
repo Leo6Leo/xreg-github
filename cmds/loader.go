@@ -381,41 +381,41 @@ func LoadEndpointsSample(reg *registry.Registry) *registry.Registry {
 
 	// End of model
 
-	g, err := reg.AddGroupWithObject("endpoints", "e1", registry.Object{
-		"usage": "producer",
-	}, false)
-	ErrFatalf(err)
-	ErrFatalf(g.SetSave("name", "end1"))
-	ErrFatalf(g.SetSave("epoch", 1))
-	ErrFatalf(g.SetSave("labels.stage", "dev"))
-	ErrFatalf(g.SetSave("labels.stale", "true"))
-
-	r, err := g.AddResource("messages", "created", "v1")
-	ErrFatalf(err)
-	v, err := r.FindVersion("v1", false)
-	ErrFatalf(err)
-	ErrFatalf(v.SetSave("name", "blobCreated"))
-	ErrFatalf(v.SetSave("epoch", 2))
-
-	v, err = r.AddVersion("v2")
-	ErrFatalf(err)
-	ErrFatalf(v.SetSave("name", "blobCreated"))
-	ErrFatalf(v.SetSave("epoch", 4))
-	ErrFatalf(r.SetDefault(v))
-
-	r, err = g.AddResource("messages", "deleted", "v1.0")
-	ErrFatalf(err)
-	v, err = r.FindVersion("v1.0", false)
-	ErrFatalf(err)
-	ErrFatalf(v.SetSave("name", "blobDeleted"))
-	ErrFatalf(v.SetSave("epoch", 3))
-
-	g, err = reg.AddGroupWithObject("endpoints", "e2", registry.Object{
-		"usage": "consumer",
-	}, false)
-	ErrFatalf(err)
-	ErrFatalf(g.SetSave("name", "end1"))
-	ErrFatalf(g.SetSave("epoch", 1))
+	//g, err := reg.AddGroupWithObject("endpoints", "e1", registry.Object{
+	//	"usage": "producer",
+	//}, false)
+	//ErrFatalf(err)
+	//ErrFatalf(g.SetSave("name", "end1"))
+	//ErrFatalf(g.SetSave("epoch", 1))
+	//ErrFatalf(g.SetSave("labels.stage", "dev"))
+	//ErrFatalf(g.SetSave("labels.stale", "true"))
+	//
+	//r, err := g.AddResource("messages", "created", "v1")
+	//ErrFatalf(err)
+	//v, err := r.FindVersion("v1", false)
+	//ErrFatalf(err)
+	//ErrFatalf(v.SetSave("name", "blobCreated"))
+	//ErrFatalf(v.SetSave("epoch", 2))
+	//
+	//v, err = r.AddVersion("v2")
+	//ErrFatalf(err)
+	//ErrFatalf(v.SetSave("name", "blobCreated"))
+	//ErrFatalf(v.SetSave("epoch", 4))
+	//ErrFatalf(r.SetDefault(v))
+	//
+	//r, err = g.AddResource("messages", "deleted", "v1.0")
+	//ErrFatalf(err)
+	//v, err = r.FindVersion("v1.0", false)
+	//ErrFatalf(err)
+	//ErrFatalf(v.SetSave("name", "blobDeleted"))
+	//ErrFatalf(v.SetSave("epoch", 3))
+	//
+	//g, err = reg.AddGroupWithObject("endpoints", "e2", registry.Object{
+	//	"usage": "consumer",
+	//}, false)
+	//ErrFatalf(err)
+	//ErrFatalf(g.SetSave("name", "end1"))
+	//ErrFatalf(g.SetSave("epoch", 1))
 
 	ErrFatalf(reg.Model.Verify())
 	reg.Commit()
@@ -443,11 +443,20 @@ func LoadMessagesSample(reg *registry.Registry) *registry.Registry {
 		reg.SetSave("documentation", "https://github.com/duglin/xreg-github")
 	}
 
+	// We are using a slightly modified version of the spec from the xreg-github repo
 	specPath := os.Getenv("XR_SPEC")
 	if specPath == "" {
-		specPath = "https://raw.githubusercontent.com/xregistry/spec/main"
+		specPath = "https://raw.githubusercontent.com/Leo6Leo/xreg-github/cloudyhq/cmds"
 	}
-	fn := specPath + "/message/model.json"
+	fn := specPath + "/message_model.json"
+
+	// This is the spec from the xregistry repo
+	// specPath := os.Getenv("XR_SPEC")
+	// if specPath == "" {
+	// 	specPath = "https://raw.githubusercontent.com/xregistry/spec/main"
+	// }
+	// fn := specPath + "/message/model.json"
+
 	err = reg.LoadModelFromFile(fn)
 	ErrFatalf(err)
 
@@ -515,6 +524,13 @@ func LoadSchemasSample(reg *registry.Registry) *registry.Registry {
 
 	msgs, _ := reg.Model.AddGroupModel("schemagroups", "schemagroup")
 	msgs.AddResourceModel("schemas", "schema", 0, true, true, true)
+
+	specPath := os.Getenv("XR_SPEC")
+	if specPath == "" {
+		specPath = "https://raw.githubusercontent.com/xregistry/spec/main"
+	}
+	fn := specPath + "/schema/model.json"
+	err = reg.LoadModelFromFile(fn)
 
 	// End of model
 
