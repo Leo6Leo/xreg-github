@@ -1,10 +1,11 @@
 {
-  "schemas": ["json-schema/draft-07"],
+  "schemas": [
+    "json-schema/draft-07"
+  ],
   "groups": {
     "messagegroups": {
       "singular": "messagegroup",
       "plural": "messagegroups",
-
       "attributes": {
         "format": {
           "name": "format",
@@ -37,114 +38,127 @@
             "format": {
               "name": "format",
               "type": "string",
-              "description": "Message format identifier. This attribute MUST be the same as the 'format' attribute of the definition group, but is not automatically inherited because definitions may be cross-referenced across groups"
-            },
-            "metadata": {
-              "name": "metadata",
-              "type": "object",
-              "description": "CloudEvents metadata constraints",
-              "attributes": {
-                "type": {
-                  "name": "type",
-                  "type": "object",
-                  "description": "CloudEvents type",
-                  "attributes": {
-                    "value": {
-                      "name": "value",
-                      "type": "string",
-                      "description": "CloudEvents type value template"
-                    }
-                  }
-                },
-                "source": {
-                  "name": "source",
-                  "description": "CloudEvents source",
-                  "type": "object",
-                  "attributes": {
-                    "value": {
-                      "name": "value",
-                      "description": "CloudEvents source value template",
-                      "type": "string"
-                    }
-                  }
-                },
-                "subject": {
-                  "name": "subject",
-                  "description": "CloudEvents subject",
-                  "type": "object",
-                  "attributes": {
-                    "value": {
-                      "name": "value",
-                      "description": "CloudEvents subject value template",
-                      "type": "string"
-                    },
-                    "required": {
-                      "name": "required",
-                      "description": "CloudEvents subject required",
-                      "type": "boolean"
-                    }
-                  }
-                },
-                "id": {
-                  "name": "id",
-                  "description": "CloudEvents id",
-                  "type": "object",
-                  "attributes": {
-                    "value": {
-                      "name": "value",
-                      "description": "CloudEvents id value template",
-                      "type": "string"
-                    }
-                  }
-                },
-                "time": {
-                  "name": "time",
-                  "description": "The timestamp of when the event happened",
-                  "type": "object",
-                  "attributes": {
-                    "value": {
-                      "name": "value",
-                      "description": "The timestamp value template",
-                      "type": "string"
-                    },
-                    "required": {
-                      "name": "required",
-                      "description": "The timestamp required",
-                      "type": "boolean"
-                    }
-                  }
-                },
-                "dataschema": {
-                  "name": "dataschema",
-                  "description": "The uri of the schema that the event payload adheres to. If the dataschema attribute is not present, it MUST be interpreted as no schema. An application MAY assign a meaning to the dataschema attribute if it is not present by default",
-                  "type": "object",
-                  "attributes": {
-                    "value": {
-                      "name": "value",
-                      "description": "The uri value template",
-                      "type": "uritemplate"
-                    },
-                    "required": {
-                      "name": "required",
-                      "description": "The uri required",
-                      "type": "boolean"
-                    }
-                  }
-                },
-                "*": {
-                  "name": "*",
-                  "description": "CloudEvent extension property",
-                  "type": "object",
-                  "attributes": {
-                    "value": {
-                      "name": "value",
-                      "description": "The value template",
-                      "type": "string"
-                    },
-                    "required": {
-                      "name": "required",
-                      "description": "Whether the extension is required",
-                      "type": "boolean"
+              "description": "Message format identifier. This attribute MUST be the same as the 'format' attribute of the definition group, but is not automatically inherited because definitions may be cross-referenced across groups",
+              "ifvalues": {
+                "None": {},
+                "CloudEvents/1.0": {
+                  "siblingattributes": {
+                    "metadata": {
+                      "name": "metadata",
+                      "type": "object",
+                      "description": "CloudEvents metadata constraints",
+                      "attributes": {
+                        "attributes": {
+                          "name": "attributes",
+                          "type": "object",
+                          "attributes": {
+                            "type": {
+                              "name": "type",
+                              "type": "object",
+                              "description": "CloudEvents type",
+                              "attributes": {
+                                "value": {
+                                  "name": "value",
+                                  "type": "string",
+                                  "description": "CloudEvents type value template"
+                                }
+                              }
+                            },
+                            "source": {
+                              "name": "source",
+                              "description": "CloudEvents source",
+                              "type": "object",
+                              "attributes": {
+                                "value": {
+                                  "name": "value",
+                                  "description": "CloudEvents source value template",
+                                  "type": "string"
+                                }
+                              }
+                            },
+                            "subject": {
+                              "name": "subject",
+                              "description": "CloudEvents subject",
+                              "type": "object",
+                              "attributes": {
+                                "value": {
+                                  "name": "value",
+                                  "description": "CloudEvents subject value template",
+                                  "type": "string"
+                                },
+                                "required": {
+                                  "name": "required",
+                                  "description": "CloudEvents subject required",
+                                  "type": "boolean"
+                                }
+                              }
+                            },
+                            "id": {
+                              "name": "id",
+                              "description": "CloudEvents id",
+                              "type": "object",
+                              "attributes": {
+                                "value": {
+                                  "name": "value",
+                                  "description": "CloudEvents id value template",
+                                  "type": "string"
+                                }
+                              }
+                            },
+                            "time": {
+                              "name": "time",
+                              "description": "The timestamp of when the event happened",
+                              "type": "object",
+                              "attributes": {
+                                "value": {
+                                  "name": "value",
+                                  "description": "The timestamp value template",
+                                  "type": "string"
+                                },
+                                "required": {
+                                  "name": "required",
+                                  "description": "The timestamp required",
+                                  "type": "boolean"
+                                }
+                              }
+                            },
+                            "dataschema": {
+                              "name": "dataschema",
+                              "description": "The uri of the schema that the event payload adheres to. If the dataschema attribute is not present, it MUST be interpreted as no schema. An application MAY assign a meaning to the dataschema attribute if it is not present by default",
+                              "type": "object",
+                              "attributes": {
+                                "value": {
+                                  "name": "value",
+                                  "description": "The uri value template",
+                                  "type": "uritemplate"
+                                },
+                                "required": {
+                                  "name": "required",
+                                  "description": "The uri required",
+                                  "type": "boolean"
+                                }
+                              }
+                            },
+                            "*": {
+                              "name": "*",
+                              "description": "CloudEvent extension property",
+                              "type": "object",
+                              "attributes": {
+                                "value": {
+                                  "name": "value",
+                                  "description": "The value template",
+                                  "type": "string"
+                                },
+                                "required": {
+                                  "name": "required",
+                                  "description": "Whether the extension is required",
+                                  "type": "boolean"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
                     }
                   }
                 }
@@ -773,8 +787,8 @@
               "description": "The inline schema object for the message payload, equivalent to the 'schemaobject' attribute of the schema registry",
               "type": "object"
             },
-            "schemauri": {
-              "name": "schemauri",
+            "schemaurl": {
+              "name": "schemaurl",
               "description": "The URL of the schema for the message payload, equivalent to the 'schemaurl' attribute of the schema registry",
               "type": "uri"
             }
