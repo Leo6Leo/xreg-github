@@ -27,12 +27,13 @@
                 "value": "application/json"
               },
               "dataschema": {
-                "value": "#/schemagroups/CloudyHQ/schemas/PackageTrackingData/versions/1"
+                "value": "#/schemagroups/CloudyHQ/schemas/PackageTrackingData/versions/1",
+                "required": true
               }
             }
           },
           "schemaformat": "JsonSchema/draft-07",
-          "schemaurl": "#/schemagroups/CloudyHQ/schemas/PackageTrackingData/versions/1"
+          "schemauri": "#/schemagroups/CloudyHQ/schemas/PackageTrackingData/versions/1"
         },
         "CloudyHQ.Factory.Depart": {
           "id": "CloudyHQ.Factory.Depart",
@@ -55,12 +56,13 @@
                 "value": "application/json"
               },
               "dataschema": {
-                "value": "#/schemagroups/CloudyHQ/schemas/PackageTrackingData/versions/1"
+                "value": "#/schemagroups/CloudyHQ/schemas/PackageTrackingData/versions/1",
+                "required": true
               }
             }
           },
           "schemaformat": "JsonSchema/draft-07",
-          "schemaurl": "#/schemagroups/CloudyHQ/schemas/PackageTrackingData/versions/1"
+          "schemauri": "#/schemagroups/CloudyHQ/schemas/PackageTrackingData/versions/1"
         }
       }
     },
@@ -91,12 +93,13 @@
                 "value": "application/json"
               },
               "dataschema": {
-                "value": "#/schemagroups/CloudyHQ/schemas/PackageTrackingData/versions/1"
+                "value": "#/schemagroups/CloudyHQ/schemas/PackageTrackingData/versions/1",
+                "required": true
               }
             }
           },
           "schemaformat": "JsonSchema/draft-07",
-          "schemaurl": "#/schemagroups/CloudyHQ/schemas/PackageTrackingData/versions/1"
+          "schemauri": "#/schemagroups/CloudyHQ/schemas/PackageTrackingData/versions/1"
         },
         "CloudyHQ.Store.Depart": {
           "id": "CloudyHQ.Store.Depart",
@@ -119,12 +122,13 @@
                 "value": "application/json"
               },
               "dataschema": {
-                "value": "#/schemagroups/CloudyHQ/schemas/PackageTrackingData/versions/1"
+                "value": "#/schemagroups/CloudyHQ/schemas/PackageTrackingData/versions/1",
+                "required": true
               }
             }
           },
           "schemaformat": "JsonSchema/draft-07",
-          "schemaurl": "#/schemagroups/CloudyHQ/schemas/PackageTrackingData/versions/1"
+          "schemauri": "#/schemagroups/CloudyHQ/schemas/PackageTrackingData/versions/1"
         }
       }
     }
