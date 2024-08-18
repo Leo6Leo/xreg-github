@@ -443,11 +443,20 @@ func LoadMessagesSample(reg *registry.Registry) *registry.Registry {
 		reg.SetSave("documentation", "https://github.com/duglin/xreg-github")
 	}
 
+	// We are using a slightly modified version of the spec from the xreg-github repo
 	specPath := os.Getenv("XR_SPEC")
 	if specPath == "" {
-		specPath = "https://raw.githubusercontent.com/xregistry/spec/main"
+		specPath = "https://raw.githubusercontent.com/Leo6Leo/xreg-github/cloudyhq/cmds"
 	}
-	fn := specPath + "/message/model.json"
+	fn := specPath + "/message_model.json"
+
+	// This is the spec from the xregistry repo
+	// specPath := os.Getenv("XR_SPEC")
+	// if specPath == "" {
+	// 	specPath = "https://raw.githubusercontent.com/xregistry/spec/main"
+	// }
+	// fn := specPath + "/message/model.json"
+
 	err = reg.LoadModelFromFile(fn)
 	ErrFatalf(err)
 
